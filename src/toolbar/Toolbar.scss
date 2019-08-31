@@ -1,0 +1,77 @@
+@import '../shared/variables';
+
+#toolbar {
+  height: calc(100% - 40px);
+  width: $toolbar-width;
+  padding: 20px;
+  background-color: lighten($color-lightgray, 35%);
+}
+
+.toolbar-button {
+  position: relative;
+  display: inline-block;
+  border: solid 1px $color-gray;
+  border-radius: 3px;
+  width: $toolbar-size;
+  height: $toolbar-size;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  margin: 5px;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &.selected {
+    transform: scale(1.2, 1.2);
+    box-shadow: 0 0 2px $color-gray;
+  }
+}
+
+.color-item {
+  line-height: 0;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.weight-item {
+  position: relative;
+  width: $toolbar-size * 2;
+  background-color: $color-white;
+
+  > span {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    border-bottom: solid 1px $color-gray;
+  }
+}
+
+.edit-item {
+  $edit-item-size: $toolbar-size * 1.5;
+
+  background-color: $color-white;
+  line-height: $edit-item-size;
+  text-align: center;
+  font-size: 1.5em;
+  width: $edit-item-size;
+  height: $edit-item-size;
+}
+
+#toolbar-undo {
+  transform: rotate(-90deg);
+}
+
+#toolbar-redo {
+  transform: rotate(90deg);
+}
